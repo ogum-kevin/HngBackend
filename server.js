@@ -16,7 +16,8 @@ function dayOfTheWeek(day) {
 app.get('/api',async(req,res) =>{
     const slackName = req.query['slack_name'];
     const  track = req.query['track'];
-    const UTC_time = new Date().toISOString();
+    const parts = new Date().toISOString().split(".");
+    const UTC_time= parts[0]+ "Z"
     const getDayToday = new Date().getUTCDay()
     const day =dayOfTheWeek(getDayToday)
     const github_file_url ='https://github.com/ogum-kevin/HngBackend/blob/main/server.js'
