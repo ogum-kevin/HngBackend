@@ -37,7 +37,12 @@ router.get('/:id', asyncHandler(async(req,res) =>{
      const UserExists = await UserModel.findOne({
          id: user_id
      })
+     
+     if(UserExists){
      res.status(200).json(UserExists)
+     }
+
+     console.log(UserExists)
 
      if(!UserExists){
          res.status(404);
