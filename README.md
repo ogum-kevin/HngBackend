@@ -8,7 +8,7 @@ Welcome to the API documentation for the HngBackend service! This API provides v
 ## Base URL
 
 ```
-https://your-api-url.com
+https://hngx-internship.onrender.com/api
 ```
 
 ## Endpoints
@@ -25,7 +25,7 @@ https://your-api-url.com
 **Example Request:**
 
 ```shell
-GET https://your-api-url.com/?slack_name=johndoe&track=backend
+GET https://hngx-internship.onrender.com/api?slack_name=johndoe&track=backend
 ```
 
 **Example Response:**
@@ -53,7 +53,7 @@ GET https://your-api-url.com/?slack_name=johndoe&track=backend
 **Example Request:**
 
 ```shell
-GET https://your-api-url.com/12345
+GET https://hngx-internship.onrender.com/api/12345
 ```
 
 **Example Response (Success):**
@@ -86,7 +86,7 @@ GET https://your-api-url.com/12345
 **Example Request:**
 
 ```shell
-POST https://your-api-url.com/?user_name=johndoe&user_email=john@example.com
+POST https://hngx-internship.onrender.com/api?user_name=johndoe&user_email=john@example.com
 ```
 
 **Example Response (Success):**
@@ -118,19 +118,19 @@ POST https://your-api-url.com/?user_name=johndoe&user_email=john@example.com
 **Example Request (Update Name):**
 
 ```shell
-PATCH https://your-api-url.com/12345?user_name=newname
+PATCH https://hngx-internship.onrender.com/api/12345?user_name=newname
 ```
 
 **Example Request (Update Email):**
 
 ```shell
-PATCH https://your-api-url.com/12345?user_email=newemail@example.com
+PATCH https://hngx-internship.onrender.com/api/12345?user_email=newemail@example.com
 ```
 
 **Example Request (Update Both Name and Email):**
 
 ```shell
-PATCH https://your-api-url.com/12345?user_name=newname&user_email=newemail@example.com
+PATCH https://hngx-internship.onrender.com/api?user_name=newname&user_email=newemail@example.com
 ```
 
 **Example Response (Success):**
@@ -170,7 +170,7 @@ PATCH https://your-api-url.com/12345?user_name=newname&user_email=newemail@examp
 **Example Request:**
 
 ```shell
-DELETE https://your-api-url.com/12345
+DELETE https://hngx-internship.onrender.com/api/12345
 ```
 
 **Example Response (Success):**
