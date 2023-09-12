@@ -36,7 +36,7 @@ router.post("/",asyncHandler(async(req,res) =>{
     let user_email = req.query.user_email;
     let user_id = Math.floor(Math.random() *10000);
 
-    
+
     const UserExists = await UserModel.findOne({
         userEmail:user_email
     })
@@ -67,12 +67,49 @@ router.post("/",asyncHandler(async(req,res) =>{
 }))
 
 router.patch("/:id",asyncHandler(async(req,res) =>{
-    const user_id= req.params['id'];
+    let user_id= req.params.id;
      const UserExists = await UserModel.findOne({
-         user_id
+         id:user_id
      })
+
+     ///get the use by id then check which field needs to be updated 
+     //only uodate fields with a value  otherwise retain original data
+     let user_name =req.query.user_name;
+     const user_email =req.query.user_email;
+
+     console.log(user_email)
+     console.log(user_name)
+     
      if (UserExists) {
-        console.log('User can be patched')
+
+        if ((user_email === " " || !user_email) && (user_name === " " || !user_name)){
+            res.status(403);
+            throw new Error('Invalid user credentials')
+            }
+        
+
+        if((user_email ===  " " || !user_email) && user_name)  {
+        const filter= {id :user_id}
+        const update={userName : user_name}
+
+        let newUser= await UserModel.findOneAndUpdate(filter,update,{new:true})
+         res.status(201).json(newUser)
+        }
+
+
+         if((user_name ===  " " || !user_name) && user_email)  {
+        const filter= {id :user_id}
+        const update={userEmail : user_email}
+
+        let newUser= await UserModel.findOneAndUpdate(filter,update,{new:true})
+         res.status(201).json(newUser)
+        }
+
+        const filter={id :user_id};
+        const update={userName:user_name,userEmail:user_email};
+        let updatedUser = await UserModel.findOneAndUpdate(filter,update,{new:true})
+        res.status(201).json(updatedUser)
+       
      }
 
      if(!UserExists){
@@ -81,8 +118,25 @@ router.patch("/:id",asyncHandler(async(req,res) =>{
      }
 }))
 
-router.delete('/',asyncHandler(async(req,res) =>{
-    console.log('delete')
+router.delete('/:id',asyncHandler(async(req,res) =>{
+    let user_id = req.params.id;
+     const UserExists = await UserModel.findOne({
+         id: user_id
+     })
+
+     if(UserExists){
+        let filter ={id: user_id}
+        let userDelete = await UserModel.findOneAndDelete(filter)
+        res.status(200).json(userDelete)
+     }
+
+      if (!UserExists) {
+          res.status(400);
+          throw new Error('User  of that ID does not  exist')
+      }
+    
+
+    //console.log('delete')
 }))
 
 module.exports =router;
