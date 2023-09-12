@@ -31,6 +31,21 @@ router.get("/" ,asyncHandler(async(req,res) =>{
     // console.log(day);
 }))
 
+router.get('/:id', asyncHandler(async(req,res) =>{
+    let user_id =req.params.id;
+
+     const UserExists = await UserModel.findOne({
+         id: user_id
+     })
+     res.status(200).json(UserExists)
+
+     if(!UserExists){
+         res.status(404);
+         throw new Error('Resource not found!')
+     }
+
+}))
+
 router.post("/",asyncHandler(async(req,res) =>{
     let user_name= req.query.user_name;
     let user_email = req.query.user_email;
