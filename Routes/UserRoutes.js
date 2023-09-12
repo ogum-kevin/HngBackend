@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const asyncHandler =require('express-async-handler');
-//const userModel =require('../Models/UserModel');
+const userModel =require('../Models/UserModel');
 
-const {dayOfTheWeek} = require('../Utils/helper')
+const {dayOfTheWeek} = require('../Utils/helper');
+const UserModel = require('../Models/UserModel');
 
 router.get("/" ,asyncHandler(async(req,res) =>{
     const slackName = req.query['slack_name'];
@@ -31,11 +32,53 @@ router.get("/" ,asyncHandler(async(req,res) =>{
 }))
 
 router.post("/",asyncHandler(async(req,res) =>{
-    console.log('Post')
+    let user_name= req.query.user_name;
+    let user_email = req.query.user_email;
+    let user_id = Math.floor(Math.random() *10000);
+
+    
+    const UserExists = await UserModel.findOne({
+        userEmail:user_email
+    })
+
+    if (UserExists) {
+        //Error message 'the user already exist please login
+        res.status(400);
+        throw new Error('User already exists')
+    }
+
+    const user= await UserModel.create({
+
+        id:user_id,
+        userEmail:user_email,
+        userName:user_name
+    })
+    const message= 'Request successful'
+    const statusCode= 200;
+
+    if(user){
+        res.status(200).json({
+            message,
+            statusCode
+        }
+            
+        )
+    }
 }))
 
-router.patch("/",asyncHandler(async(req,res) =>{
-    console.log('patch')
+router.patch("/:id",asyncHandler(async(req,res) =>{
+    const user_id= req.params['id'];
+     const UserExists = await UserModel.findOne({
+         user_id
+     })
+     if (UserExists) {
+        console.log('User can be patched')
+     }
+
+     if(!UserExists){
+        res.status(400);
+        throw new Error('User  of that ID does not  exist')
+     }
 }))
 
 router.delete('/',asyncHandler(async(req,res) =>{

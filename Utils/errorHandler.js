@@ -4,7 +4,7 @@ const notFound = (req, res, next) => {
     next(error)
 }
 
-/*const errorHandling = (err, req, res, next) => {
+const errorHandling = (err, req, res, next) => {
     let statusCode = res.statusCode === 200 ? 500 : res.statusCode;
     let message = err.message;
 
@@ -13,19 +13,14 @@ const notFound = (req, res, next) => {
         message = 'Resource not found';
     }
     console.log(message)
-    res.status(statusCode).render('error', {
-        errorCode: statusCode,
-        errorMessage: message
-    })
-
-    /*json({
+    res.status(statusCode).json({
         message,
         stack: process.env.NODE_ENV === 'PRODUCTION' ? null : err.stack,
     })
 
-}*/
+}
 
 module.exports = {
-    notFound
-    //errorHandling
+    notFound,
+    errorHandling
 }
