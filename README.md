@@ -90,7 +90,7 @@ GET https://hngx-internship.onrender.com/api/12345
 **Example Request:**
 
 ```json
-POST /register
+POST /
 {
   "user_name": "johndoe",
   "user_email": "john@example.com"
