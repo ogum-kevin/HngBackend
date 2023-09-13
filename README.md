@@ -73,12 +73,8 @@ GET https://hngx-internship.onrender.com/api/12345
   "error": "User of that ID does not exist"
 }
 ```
-Certainly! Here's the optimized version of the API documentation for GitHub README:
 
 ```markdown
-# User Registration API Documentation
-
-Welcome to the User Registration API documentation. This API allows you to register new users. Below, you'll find details on how to use this endpoint.
 
 ###2.Create User
 
@@ -124,14 +120,8 @@ POST /register
 }
 ```
 
-## Usage Notes
 
-- After successful registration, the user will be logged in automatically, and a JWT token may be provided for authentication in subsequent requests.
-
-Feel free to use this endpoint to register new users in our system. If you have any questions or need further assistance, please reach out. Happy coding! 🚀👨‍💻👩‍💻 #UserRegistration #API #Documentation
 ```
-
-You can paste this optimized Markdown content directly into your GitHub README for clear and organized API documentation.
 
 
 ### 4. Update User Information
