@@ -37,7 +37,7 @@ router.get('/:id', asyncHandler(async(req,res) =>{
      const UserExists = await UserModel.findOne({
          id: user_id
      })
-     
+
      if(UserExists){
      res.status(200).json(UserExists)
      }
@@ -52,8 +52,8 @@ router.get('/:id', asyncHandler(async(req,res) =>{
 }))
 
 router.post("/",asyncHandler(async(req,res) =>{
-    let user_name= req.query.user_name;
-    let user_email = req.query.user_email;
+    let user_name= req.body.user_name;
+    let user_email = req.body.user_email;
     let user_id = Math.floor(Math.random() *10000);
 
 
