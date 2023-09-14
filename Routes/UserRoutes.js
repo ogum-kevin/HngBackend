@@ -143,7 +143,7 @@ router.delete('/:id',asyncHandler(async(req,res) =>{
      if(UserExists){
         let filter ={id: user_id}
         let userDelete = await UserModel.findOneAndDelete(filter)
-        res.status(200).json(userDelete)
+        res.status(204).json(userDelete)
      }
 
       if (!UserExists) {
