@@ -10,6 +10,11 @@ Welcome to the API documentation for the HngBackend service! This API provides v
 ```
 https://hngx-internship.onrender.com/api
 ```
+## Postman test scripts link
+
+```
+https://elements.getpostman.com/redirect?entityId=18264213-b1e83851-0817-485b-a10d-f14179643b08&entityType=collection
+```
 
 ## Endpoints
 
