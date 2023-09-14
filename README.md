@@ -74,37 +74,55 @@ GET https://hngx-internship.onrender.com/api/12345
 }
 ```
 
-### 3. Create a New User
+```markdown
 
-- **Endpoint:** `/`
+###2.Create User
+
+- **URL:** `/`
 - **Method:** `POST`
-- **Description:** Create a new user with a random ID.
-- **Parameters:**
-  - `user_name` (string, required): The name of the user.
-  - `user_email` (string, required): The email of the user.
+- **Description:** Register a new user.
+
+## Request Parameters
+
+- `user_name` (string, required): The name of the user.
+- `user_email` (string, required): The email of the user.
 
 **Example Request:**
 
-```shell
-POST https://hngx-internship.onrender.com/api?user_name=johndoe&user_email=john@example.com
+```json
+POST /
+{
+  "user_name": "johndoe",
+  "user_email": "john@example.com"
+}
 ```
 
-**Example Response (Success):**
+## Successful Response
+
+- **Status Code:** 200 OK
+- **Response Body:**
 
 ```json
 {
-  "message": "Request successful",
+  "message": "User registered successfully",
   "statusCode": 200
 }
 ```
 
-**Example Response (User Already Exists):**
+## Error Response
+
+- **Status Code:** 400 Bad Request (User Already Exists)
+- **Response Body:**
 
 ```json
 {
-  "error": "User already exists"
+  "error": "User already exists. Please log in."
 }
 ```
+
+
+```
+
 
 ### 4. Update User Information
 
