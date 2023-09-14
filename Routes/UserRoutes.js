@@ -73,15 +73,11 @@ router.post("/",asyncHandler(async(req,res) =>{
         userEmail:user_email,
         userName:user_name
     })
-    const message= 'Request successful'
-    const statusCode= 200;
+   // const message= 'Request successful'
+    //const statusCode= 200;
 
     if(user){
-        res.status(200).json({
-            message,
-            statusCode
-        }
-            
+        res.status(200).json(user     
         )
     }
 }))
