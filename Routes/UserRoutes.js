@@ -77,7 +77,7 @@ router.post("/",asyncHandler(async(req,res) =>{
     //const statusCode= 200;
 
     if(user){
-        res.status(200).json(user     
+        res.status(201).json(user     
         )
     }
 }))
