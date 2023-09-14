@@ -10,11 +10,39 @@ Welcome to the API documentation for the HngBackend service! This API provides v
 ```
 https://hngx-internship.onrender.com/api
 ```
-## Postman test scripts link
+## Running Test Scripts with Postman
+You can use Postman to run test scripts for this project. Follow these steps:
 
+Install Postman: If you haven't already, download and install Postman.
+
+Import the Collection:
+
+Click on this link to import the Postman collection.
 ```
 https://elements.getpostman.com/redirect?entityId=18264213-b1e83851-0817-485b-a10d-f14179643b08&entityType=collection
 ```
+Select Environment:
+
+Before running test scripts, ensure you have the correct environment set up in Postman. You can create one by clicking on the gear icon in the upper right-hand corner and selecting "Manage Environments."
+Run the Collection:
+
+In the left sidebar, under "Collections," select the collection you imported.
+Click on the collection to open it.
+Click the "Run" button located at the top right of the collection window.
+Choose the environment you want to use for this run.
+Click the "Run <collection name>" button.
+Monitor Test Execution:
+
+Postman will send requests and execute test scripts one by one. Monitor the progress in the "Runner" tab at the bottom of the Postman window. You'll see requests being sent and test results displayed.
+View Test Results:
+
+After the collection run is complete, view the results in the "Runner" tab. It will show which requests passed and which failed. If any tests fail, click on the request to see the details of the failure.
+Export Test Results (Optional):
+
+If needed, you can export the test results by clicking the "Export Results" button in the "Runner" tab.
+## Postman test scripts link
+
+
 
 ## Endpoints
 
